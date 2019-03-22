@@ -1,0 +1,13 @@
+version: "3.3"
+services: 
+  application:
+    build: 
+      dockerfile: "Dockerfile"
+      context: "./bin/"
+    container_name: application
+    volumes: 
+      - './bin/etc/demo.conf:/etc/nginx/conf.d/demo.conf'
+      - './www/:/var/www/html'
+    ports: 
+      - "80:80"
+    restart: always
